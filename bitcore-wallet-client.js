@@ -14,8 +14,8 @@ var $ = require('preconditions').singleton();
 var util = require('util');
 var async = require('async');
 var events = require('events');
-var Bitcore = require('particl-bitcore-lib');
-var BN = require('particl-bitcore-lib/lib/crypto/bn');
+var Bitcore = require('simple-bitcore-lib');
+var BN = require('simple-bitcore-lib/lib/crypto/bn');
 var Mnemonic = require('bitcore-mnemonic');
 var sjcl = require('sjcl');
 var url = require('url');
@@ -2574,7 +2574,7 @@ API.prototype.createWalletFromOldCopay = function(username, password, blob, cb) 
 module.exports = API;
 
 }).call(this,require("buffer").Buffer)
-},{"../package.json":310,"./common":5,"./credentials":7,"./errors":8,"./log":11,"./paypro":12,"./verifier":13,"async":30,"bip38":36,"bitcore-mnemonic":37,"buffer":84,"events":129,"json-stable-stringify":151,"lodash":156,"particl-bitcore-lib":166,"particl-bitcore-lib/lib/crypto/bn":172,"preconditions":243,"querystring":260,"sjcl":286,"superagent":293,"url":302,"util":307}],3:[function(require,module,exports){
+},{"../package.json":310,"./common":5,"./credentials":7,"./errors":8,"./log":11,"./paypro":12,"./verifier":13,"async":30,"bip38":36,"bitcore-mnemonic":37,"buffer":84,"events":129,"json-stable-stringify":151,"lodash":156,"simple-bitcore-lib":166,"simple-bitcore-lib/lib/crypto/bn":172,"preconditions":243,"querystring":260,"sjcl":286,"superagent":293,"url":302,"util":307}],3:[function(require,module,exports){
 'use strict';
 
 var Constants = {};
@@ -2654,7 +2654,7 @@ var $ = require('preconditions').singleton();
 var sjcl = require('sjcl');
 var Stringify = require('json-stable-stringify');
 
-var Bitcore = require('particl-bitcore-lib');
+var Bitcore = require('simple-bitcore-lib');
 var Address = Bitcore.Address;
 var PrivateKey = Bitcore.PrivateKey;
 var PublicKey = Bitcore.PublicKey;
@@ -2886,14 +2886,14 @@ Utils.buildTx = function(txp) {
 module.exports = Utils;
 
 }).call(this,require("buffer").Buffer)
-},{"./constants":3,"./defaults":4,"buffer":84,"json-stable-stringify":151,"lodash":156,"particl-bitcore-lib":166,"preconditions":243,"sjcl":286}],7:[function(require,module,exports){
+},{"./constants":3,"./defaults":4,"buffer":84,"json-stable-stringify":151,"lodash":156,"simple-bitcore-lib":166,"preconditions":243,"sjcl":286}],7:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 
 var $ = require('preconditions').singleton();
 var _ = require('lodash');
 
-var Bitcore = require('particl-bitcore-lib');
+var Bitcore = require('simple-bitcore-lib');
 var Mnemonic = require('bitcore-mnemonic');
 var sjcl = require('sjcl');
 
@@ -3376,7 +3376,7 @@ Credentials.fromOldCopayWallet = function(w) {
 module.exports = Credentials;
 
 }).call(this,require("buffer").Buffer)
-},{"./common":5,"bitcore-mnemonic":37,"buffer":84,"lodash":156,"particl-bitcore-lib":166,"preconditions":243,"sjcl":286}],8:[function(require,module,exports){
+},{"./common":5,"bitcore-mnemonic":37,"buffer":84,"lodash":156,"simple-bitcore-lib":166,"preconditions":243,"sjcl":286}],8:[function(require,module,exports){
 'use strict';
 
 var _ = require('lodash');
@@ -3533,9 +3533,9 @@ client.Utils = require('./common/utils');
 client.sjcl = require('sjcl');
 
 // Expose bitcore
-client.Bitcore = require('particl-bitcore-lib');
+client.Bitcore = require('simple-bitcore-lib');
 
-},{"./api":2,"./common/utils":6,"./verifier":13,"particl-bitcore-lib":166,"sjcl":286}],11:[function(require,module,exports){
+},{"./api":2,"./common/utils":6,"./verifier":13,"simple-bitcore-lib":166,"sjcl":286}],11:[function(require,module,exports){
 var _ = require('lodash');
 
 var DEFAULT_LOG_LEVEL = 'silent';
@@ -3676,7 +3676,7 @@ module.exports = logger;
 (function (process,Buffer){
 var $ = require('preconditions').singleton();
 
-var Bitcore = require('particl-bitcore-lib');
+var Bitcore = require('simple-bitcore-lib');
 var BitcorePayPro = require('bitcore-payment-protocol');
 var PayPro = {};
 
@@ -3924,11 +3924,11 @@ PayPro.send = function(opts, cb) {
 module.exports = PayPro;
 
 }).call(this,require('_process'),require("buffer").Buffer)
-},{"_process":249,"bitcore-payment-protocol":48,"buffer":84,"http":288,"https":145,"particl-bitcore-lib":166,"preconditions":243}],13:[function(require,module,exports){
+},{"_process":249,"bitcore-payment-protocol":48,"buffer":84,"http":288,"https":145,"simple-bitcore-lib":166,"preconditions":243}],13:[function(require,module,exports){
 var $ = require('preconditions').singleton();
 var _ = require('lodash');
 
-var Bitcore = require('particl-bitcore-lib');
+var Bitcore = require('simple-bitcore-lib');
 
 var Common = require('./common');
 var Utils = Common.Utils;
@@ -4130,7 +4130,7 @@ Verifier.checkTxProposal = function(credentials, txp, opts) {
 
 module.exports = Verifier;
 
-},{"./common":5,"./log":11,"lodash":156,"particl-bitcore-lib":166,"preconditions":243}],14:[function(require,module,exports){
+},{"./common":5,"./log":11,"lodash":156,"simple-bitcore-lib":166,"preconditions":243}],14:[function(require,module,exports){
 var asn1 = exports;
 
 asn1.bignum = require('bn.js');
@@ -10458,13 +10458,13 @@ var spec = {
   }]
 };
 
-module.exports = require('particl-bitcore-lib').errors.extend(spec);
+module.exports = require('simple-bitcore-lib').errors.extend(spec);
 
-},{"particl-bitcore-lib":166}],39:[function(require,module,exports){
+},{"simple-bitcore-lib":166}],39:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 
-var bitcore = require('particl-bitcore-lib');
+var bitcore = require('simple-bitcore-lib');
 var BN = bitcore.crypto.BN;
 var unorm = require('unorm');
 var _ = bitcore.deps._;
@@ -10761,7 +10761,7 @@ Mnemonic.bitcore = bitcore;
 module.exports = Mnemonic;
 
 }).call(this,require("buffer").Buffer)
-},{"./errors":38,"./pbkdf2":40,"./words":44,"buffer":84,"particl-bitcore-lib":166,"unorm":301}],40:[function(require,module,exports){
+},{"./errors":38,"./pbkdf2":40,"./words":44,"buffer":84,"simple-bitcore-lib":166,"unorm":301}],40:[function(require,module,exports){
 (function (Buffer){
 'use strict';
 
@@ -11113,7 +11113,7 @@ module.exports = PaymentProtocol;
 (function (Buffer){
 'use strict';
 
-var bitcore = require('particl-bitcore-lib');
+var bitcore = require('simple-bitcore-lib');
 var protobufjs = require('protobufjs/dist/protobuf');
 var RootCerts = require('./rootcerts');
 var rfc5280 = require('asn1.js/rfc/5280');
@@ -11607,7 +11607,7 @@ PaymentProtocol.trusted = RootCerts.trusted;
 module.exports = PaymentProtocol;
 
 }).call(this,require("buffer").Buffer)
-},{"./rootcerts":51,"asn1.js/rfc/5280":28,"buffer":84,"particl-bitcore-lib":166,"protobufjs/dist/protobuf":250}],50:[function(require,module,exports){
+},{"./rootcerts":51,"asn1.js/rfc/5280":28,"buffer":84,"simple-bitcore-lib":166,"protobufjs/dist/protobuf":250}],50:[function(require,module,exports){
 module.exports={
   "GlobalSign Root CA": "-----BEGIN CERTIFICATE-----\nMIIDdTCCAl2gAwIBAgILBAAAAAABFUtaw5QwDQYJKoZIhvcNAQEFBQAwVzELMAkGA1UEBhMC\nQkUxGTAXBgNVBAoTEEdsb2JhbFNpZ24gbnYtc2ExEDAOBgNVBAsTB1Jvb3QgQ0ExGzAZBgNV\nBAMTEkdsb2JhbFNpZ24gUm9vdCBDQTAeFw05ODA5MDExMjAwMDBaFw0yODAxMjgxMjAwMDBa\nMFcxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMRAwDgYDVQQLEwdS\nb290IENBMRswGQYDVQQDExJHbG9iYWxTaWduIFJvb3QgQ0EwggEiMA0GCSqGSIb3DQEBAQUA\nA4IBDwAwggEKAoIBAQDaDuaZjc6j40+Kfvvxi4Mla+pIH/EqsLmVEQS98GPR4mdmzxzdzxtI\nK+6NiY6arymAZavpxy0Sy6scTHAHoT0KMM0VjU/43dSMUBUc71DuxC73/OlS8pF94G3VNTCO\nXkNz8kHp1Wrjsok6Vjk4bwY8iGlbKk3Fp1S4bInMm/k8yuX9ifUSPJJ4ltbcdG6TRGHRjcdG\nsnUOhugZitVtbNV4FpWi6cgKOOvyJBNPc1STE4U6G7weNLWLBYy5d4ux2x8gkasJU26Qzns3\ndLlwR5EiUWMWea6xrkEmCMgZK9FGqkjWZCrXgzT/LCrBbBlDSgeF59N89iFo7+ryUp9/k5DP\nAgMBAAGjQjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBRg\ne2YaRQ2XyolQL30EzTSo//z9SzANBgkqhkiG9w0BAQUFAAOCAQEA1nPnfE920I2/7LqivjTF\nKDK1fPxsnCwrvQmeU79rXqoRSLblCKOzyj1hTdNGCbM+w6DjY1Ub8rrvrTnhQ7k4o+YviiY7\n76BQVvnGCv04zcQLcFGUl5gE38NflNUVyRRBnMRddWQVDf9VMOyGj/8N7yy5Y0b2qvzfvGn9\nLhJIZJrglfCm7ymPAbEVtQwdpf5pLGkkeB6zpxxxYu7KyJesF12KwvhHhm4qxFYxldBniYUr\n+WymXUadDKqC5JlR3XC321Y9YeRq4VzW9v493kHMB65jUr9TU/Qr6cf9tveCX4XSQRjbgbME\nHMUfpIBvFSDJ3gyICh3WZlXi/EjJKSZp4A==\n-----END CERTIFICATE-----\n",
   "GlobalSign Root CA - R2": "-----BEGIN CERTIFICATE-----\nMIIDujCCAqKgAwIBAgILBAAAAAABD4Ym5g0wDQYJKoZIhvcNAQEFBQAwTDEgMB4GA1UECxMX\nR2xvYmFsU2lnbiBSb290IENBIC0gUjIxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMT\nCkdsb2JhbFNpZ24wHhcNMDYxMjE1MDgwMDAwWhcNMjExMjE1MDgwMDAwWjBMMSAwHgYDVQQL\nExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMjETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE\nAxMKR2xvYmFsU2lnbjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKbPJA6+Lm8o\nmUVCxKs+IVSbC9N/hHD6ErPLv4dfxn+G07IwXNb9rfF73OX4YJYJkhD10FPe+3t+c4isUoh7\nSqbKSaZeqKeMWhG8eoLrvozps6yWJQeXSpkqBy+0Hne/ig+1AnwblrjFuTosvNYSuetZfeLQ\nBoZfXklqtTleiDTsvHgMCJiEbKjNS7SgfQx5TfC4LcshytVsW33hoCmEofnTlEnLJGKRILzd\nC9XZzPnqJworc5HGnRusyMvo4KD0L5CLTfuwNhv2GXqF4G3yYROIXJ/gkwpRl4pazq+r1feq\nCapgvdzZX99yqWATXgAByUr6P6TqBwMhAo6CygPCm48CAwEAAaOBnDCBmTAOBgNVHQ8BAf8E\nBAMCAQYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUm+IHV2ccHsBqBt5ZtJot39wZhi4w\nNgYDVR0fBC8wLTAroCmgJ4YlaHR0cDovL2NybC5nbG9iYWxzaWduLm5ldC9yb290LXIyLmNy\nbDAfBgNVHSMEGDAWgBSb4gdXZxwewGoG3lm0mi3f3BmGLjANBgkqhkiG9w0BAQUFAAOCAQEA\nmYFThxxol4aR7OBKuEQLq4GsJ0/WwbgcQ3izDJr86iw8bmEbTUsp9Z8FHSbBuOmDAGJFtqkI\nk7mpM0sYmsL4h4hO291xNBrBVNpGP+DTKqttVCL1OmLNIG+6KYnX3ZHu01yiPqFbQfXf5WRD\nLenVOavSot+3i9DAgBkcRcAtjOj4LaR0VknFBbVPFd5uRHg5h6h+u/N5GJG79G+dwfCMNYxd\nAfvDbbnvRG15RjF+Cv6pgsH/76tuIMRQyV+dTZsXjAzlAcmgQWpzU/qlULRuJQ/7TBj0/VLZ\njmmx6BEP3ojY+x1J96relc8geMJgEtslQIxq/H5COEBkEveegeGTLg==\n-----END CERTIFICATE-----\n",
@@ -51165,15 +51165,15 @@ function removeNetwork(network) {
 addNetwork({
   name: 'livenet',
   alias: 'mainnet',
-  pubkeyhash: 0x38,
-  privatekey: 0x6c,
-  scripthash: 0x3c,
-  xpubkey: 0x696e82d1,
-  xprivkey: 0x8f1daeb8,
-  networkMagic: 0xfbf2efb4,
-  port: 51738,
+  pubkeyhash: 0x3f,
+  privatekey: 0x3f,
+  scripthash: 0x3f,
+  xpubkey: 0x02FE52F8,
+  xprivkey: 0x02FE52CC,
+  networkMagic: 0xd4c3b2a1,
+  port: 34445,
   dnsSeeds: [
-    'mainnet.particl.io'
+    'seed1.simplebank.io'
   ]
 });
 
@@ -64503,13 +64503,13 @@ module.exports={
         "spec": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
         "type": "remote"
       },
-      "/home/rynom/dev/particl/bitcore-wallet-client/node_modules/particl-bitcore-lib"
+      "/home/rynom/dev/particl/bitcore-wallet-client/node_modules/simple-bitcore-lib"
     ]
   ],
   "_from": "elliptic@=3.0.3",
   "_id": "elliptic@3.0.3",
   "_inCache": true,
-  "_location": "/particl-bitcore-lib/elliptic",
+  "_location": "/simple-bitcore-lib/elliptic",
   "_phantomChildren": {
     "inherits": "2.0.1"
   },
@@ -64523,13 +64523,13 @@ module.exports={
     "type": "remote"
   },
   "_requiredBy": [
-    "/particl-bitcore-lib"
+    "/simple-bitcore-lib"
   ],
   "_resolved": "https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
   "_shasum": "865c9b420bfbe55006b9f969f97a0d2c44966595",
   "_shrinkwrap": null,
   "_spec": "elliptic@https://registry.npmjs.org/elliptic/-/elliptic-3.0.3.tgz",
-  "_where": "/home/rynom/dev/particl/bitcore-wallet-client/node_modules/particl-bitcore-lib",
+  "_where": "/home/rynom/dev/particl/bitcore-wallet-client/node_modules/simple-bitcore-lib",
   "author": {
     "name": "Fedor Indutny",
     "email": "fedor@indutny.com"
@@ -64583,47 +64583,47 @@ module.exports={
   "_args": [
     [
       {
-        "raw": "particl-bitcore-lib@git+ssh://git@github.com/particl/particl-bitcore-lib.git",
+        "raw": "simple-bitcore-lib@git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
         "scope": null,
-        "escapedName": "particl-bitcore-lib",
-        "name": "particl-bitcore-lib",
-        "rawSpec": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
-        "spec": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
+        "escapedName": "simple-bitcore-lib",
+        "name": "simple-bitcore-lib",
+        "rawSpec": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
+        "spec": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
         "type": "hosted",
         "hosted": {
           "type": "github",
-          "ssh": "git@github.com:particl/particl-bitcore-lib.git",
-          "sshUrl": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
-          "httpsUrl": "git+https://github.com/particl/particl-bitcore-lib.git",
-          "gitUrl": "git://github.com/particl/particl-bitcore-lib.git",
-          "shortcut": "github:particl/particl-bitcore-lib",
-          "directUrl": "https://raw.githubusercontent.com/particl/particl-bitcore-lib/master/package.json"
+          "ssh": "git@github.com:kalilinuxoo7/simple-bitcore-lib.git",
+          "sshUrl": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
+          "httpsUrl": "git+https://github.com/kalilinuxoo7/simple-bitcore-lib.git",
+          "gitUrl": "git://github.com/kalilinuxoo7/simple-bitcore-lib.git",
+          "shortcut": "github:kalilinuxoo7/simple-bitcore-lib",
+          "directUrl": "https://raw.githubusercontent.com/kalilinuxoo7/simple-bitcore-lib/master/package.json"
         }
       },
       "/home/rynom/dev/particl/bitcore-wallet-client"
     ]
   ],
-  "_from": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
-  "_id": "particl-bitcore-lib@0.14.1",
+  "_from": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
+  "_id": "simple-bitcore-lib@0.14.1",
   "_inCache": true,
-  "_location": "/particl-bitcore-lib",
+  "_location": "/simple-bitcore-lib",
   "_phantomChildren": {},
   "_requested": {
-    "raw": "particl-bitcore-lib@git+ssh://git@github.com/particl/particl-bitcore-lib.git",
+    "raw": "simple-bitcore-lib@git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
     "scope": null,
-    "escapedName": "particl-bitcore-lib",
-    "name": "particl-bitcore-lib",
-    "rawSpec": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
-    "spec": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
+    "escapedName": "simple-bitcore-lib",
+    "name": "simple-bitcore-lib",
+    "rawSpec": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
+    "spec": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
     "type": "hosted",
     "hosted": {
       "type": "github",
-      "ssh": "git@github.com:particl/particl-bitcore-lib.git",
-      "sshUrl": "git+ssh://git@github.com/particl/particl-bitcore-lib.git",
-      "httpsUrl": "git+https://github.com/particl/particl-bitcore-lib.git",
-      "gitUrl": "git://github.com/particl/particl-bitcore-lib.git",
-      "shortcut": "github:particl/particl-bitcore-lib",
-      "directUrl": "https://raw.githubusercontent.com/particl/particl-bitcore-lib/master/package.json"
+      "ssh": "git@github.com:kalilinuxoo7/simple-bitcore-lib.git",
+      "sshUrl": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
+      "httpsUrl": "git+https://github.com/kalilinuxoo7/simple-bitcore-lib.git",
+      "gitUrl": "git://github.com/kalilinuxoo7/simple-bitcore-lib.git",
+      "shortcut": "github:kalilinuxoo7/simple-bitcore-lib",
+      "directUrl": "https://raw.githubusercontent.com/kalilinuxoo7/simple-bitcore-lib/master/package.json"
     }
   },
   "_requiredBy": [
@@ -64632,7 +64632,7 @@ module.exports={
     "/bitcore-payment-protocol",
     "/bitcore-wallet-service"
   ],
-  "_resolved": "git+ssh://git@github.com/particl/particl-bitcore-lib.git#b980b72fc1b0e0df87cc8f54845aa62c194e680e",
+  "_resolved": "git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git#b980b72fc1b0e0df87cc8f54845aa62c194e680e",
   "_shasum": "749e4786208b282ccff214a371e74b413330913b",
   "_shrinkwrap": {
     "name": "bitcore",
@@ -64682,7 +64682,7 @@ module.exports={
       }
     }
   },
-  "_spec": "particl-bitcore-lib@git+ssh://git@github.com/particl/particl-bitcore-lib.git",
+  "_spec": "simple-bitcore-lib@git+ssh://git@github.com/kalilinuxoo7/simple-bitcore-lib.git",
   "_where": "/home/rynom/dev/particl/bitcore-wallet-client",
   "author": {
     "name": "BitPay",
@@ -64692,7 +64692,7 @@ module.exports={
     "request": "browser-request"
   },
   "bugs": {
-    "url": "https://github.com/particl/particl-bitcore-lib/issues"
+    "url": "https://github.com/kalilinuxoo7/simple-bitcore-lib/issues"
   },
   "contributors": [
     {
@@ -64757,7 +64757,7 @@ module.exports={
     "sinon": "^1.13.0"
   },
   "gitHead": "b980b72fc1b0e0df87cc8f54845aa62c194e680e",
-  "homepage": "https://github.com/particl/particl-bitcore-lib#readme",
+  "homepage": "https://github.com/kalilinuxoo7/simple-bitcore-lib#readme",
   "keywords": [
     "particl",
     "transaction",
@@ -64776,13 +64776,13 @@ module.exports={
   ],
   "license": "MIT",
   "main": "index.js",
-  "name": "particl-bitcore-lib",
+  "name": "simple-bitcore-lib",
   "optionalDependencies": {},
-  "readme": "Bitcore Library\n=======\n\n[![NPM Package](https://img.shields.io/npm/v/bitcore-lib.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib)\n[![Build Status](https://img.shields.io/travis/bitpay/bitcore-lib.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-lib)\n[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-lib.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-lib)\n\nA pure and powerful JavaScript Bitcoin library.\n\n## Principles\n\nBitcoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Bitcoin network allows for highly resilient bitcoin infrastructure, and the developer community needs reliable, open-source tools to implement bitcoin apps and services.\n\n## Get Started\n\n```\nnpm install bitcore-lib\n```\n\n```\nbower install bitcore-lib\n```\n\n## Documentation\n\nThe complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.\n\n- [Read the Developer Guide](http://bitcore.io/guide/)\n- [Read the API Reference](http://bitcore.io/api/)\n\nTo get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).\n\n## Examples\n\n* [Generate a random address](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#generate-a-random-address)\n* [Generate a address from a SHA256 hash](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)\n* [Import an address via WIF](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#import-an-address-via-wif)\n* [Create a Transaction](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#create-a-transaction)\n* [Sign a Bitcoin message](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#sign-a-bitcoin-message)\n* [Verify a Bitcoin message](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#verify-a-bitcoin-message)\n* [Create an OP RETURN transaction](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#create-an-op-return-transaction)\n* [Create a 2-of-3 multisig P2SH address](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)\n* [Spend from a 2-of-2 multisig P2SH address](https://github.com/particl/particl-bitcore-lib/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)\n\n\n## Security\n\nWe're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.\n\nIf you find a security issue, please email security@bitpay.com.\n\n## Contributing\n\nPlease send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/particl/particl-bitcore-lib/blob/master/CONTRIBUTING.md) file.\n\n## Building the Browser Bundle\n\nTo build a bitcore-lib full bundle for the browser:\n\n```sh\ngulp browser\n```\n\nThis will generate files named `bitcore-lib.js` and `bitcore-lib.min.js`.\n\nYou can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/bitpay/bitcore-lib/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).\n\nTo verify signatures, use the following PGP keys:\n- @braydonf: https://pgp.mit.edu/pks/lookup?op=get&search=0x9BBF07CAC07A276D `D909 EFE6 70B5 F6CC 89A3 607A 9BBF 07CA C07A 276D`\n- @gabegattis: https://pgp.mit.edu/pks/lookup?op=get&search=0x441430987182732C `F3EA 8E28 29B4 EC93 88CB  B0AA 4414 3098 7182 732C`\n- @kleetus: https://pgp.mit.edu/pks/lookup?op=get&search=0x33195D27EF6BDB7F `F8B0 891C C459 C197 65C2 5043 3319 5D27 EF6B DB7F`\n- @matiu: https://pgp.mit.edu/pks/lookup?op=get&search=0x9EDE6DE4DE531FAC `25CE ED88 A1B1 0CD1 12CD  4121 9EDE 6DE4 DE53 1FAC`\n\n\n## Development & Tests\n\n```sh\ngit clone https://github.com/particl/particl-bitcore-lib\ncd bitcore-lib\nnpm install\n```\n\nRun all the tests:\n\n```sh\ngulp test\n```\n\nYou can also run just the Node.js tests with `gulp test:node`, just the browser tests with `gulp test:browser`\nor create a test coverage report (you can open `coverage/lcov-report/index.html` to visualize it) with `gulp coverage`.\n\n## License\n\nCode released under [the MIT license](https://github.com/particl/particl-bitcore-lib/blob/master/LICENSE).\n\nCopyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.\n",
+  "readme": "Bitcore Library\n=======\n\n[![NPM Package](https://img.shields.io/npm/v/bitcore-lib.svg?style=flat-square)](https://www.npmjs.org/package/bitcore-lib)\n[![Build Status](https://img.shields.io/travis/bitpay/bitcore-lib.svg?branch=master&style=flat-square)](https://travis-ci.org/bitpay/bitcore-lib)\n[![Coverage Status](https://img.shields.io/coveralls/bitpay/bitcore-lib.svg?style=flat-square)](https://coveralls.io/r/bitpay/bitcore-lib)\n\nA pure and powerful JavaScript Bitcoin library.\n\n## Principles\n\nBitcoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Bitcoin network allows for highly resilient bitcoin infrastructure, and the developer community needs reliable, open-source tools to implement bitcoin apps and services.\n\n## Get Started\n\n```\nnpm install bitcore-lib\n```\n\n```\nbower install bitcore-lib\n```\n\n## Documentation\n\nThe complete docs are hosted here: [bitcore documentation](http://bitcore.io/guide/). There's also a [bitcore API reference](http://bitcore.io/api/) available generated from the JSDocs of the project, where you'll find low-level details on each bitcore utility.\n\n- [Read the Developer Guide](http://bitcore.io/guide/)\n- [Read the API Reference](http://bitcore.io/api/)\n\nTo get community assistance and ask for help with implementation questions, please use our [community forums](https://forum.bitcore.io/).\n\n## Examples\n\n* [Generate a random address](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#generate-a-random-address)\n* [Generate a address from a SHA256 hash](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#generate-a-address-from-a-sha256-hash)\n* [Import an address via WIF](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#import-an-address-via-wif)\n* [Create a Transaction](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#create-a-transaction)\n* [Sign a Bitcoin message](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#sign-a-bitcoin-message)\n* [Verify a Bitcoin message](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#verify-a-bitcoin-message)\n* [Create an OP RETURN transaction](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#create-an-op-return-transaction)\n* [Create a 2-of-3 multisig P2SH address](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#create-a-2-of-3-multisig-p2sh-address)\n* [Spend from a 2-of-2 multisig P2SH address](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/docs/examples.md#spend-from-a-2-of-2-multisig-p2sh-address)\n\n\n## Security\n\nWe're using Bitcore in production, as are [many others](http://bitcore.io#projects), but please use common sense when doing anything related to finances! We take no responsibility for your implementation decisions.\n\nIf you find a security issue, please email security@bitpay.com.\n\n## Contributing\n\nPlease send pull requests for bug fixes, code optimization, and ideas for improvement. For more information on how to contribute, please refer to our [CONTRIBUTING](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/CONTRIBUTING.md) file.\n\n## Building the Browser Bundle\n\nTo build a bitcore-lib full bundle for the browser:\n\n```sh\ngulp browser\n```\n\nThis will generate files named `bitcore-lib.js` and `bitcore-lib.min.js`.\n\nYou can also use our pre-generated files, provided for each release along with a PGP signature by one of the project's maintainers. To get them, checkout a release commit (for example, https://github.com/bitpay/bitcore-lib/commit/e33b6e3ba6a1e5830a079e02d949fce69ea33546 for v0.12.6).\n\nTo verify signatures, use the following PGP keys:\n- @braydonf: https://pgp.mit.edu/pks/lookup?op=get&search=0x9BBF07CAC07A276D `D909 EFE6 70B5 F6CC 89A3 607A 9BBF 07CA C07A 276D`\n- @gabegattis: https://pgp.mit.edu/pks/lookup?op=get&search=0x441430987182732C `F3EA 8E28 29B4 EC93 88CB  B0AA 4414 3098 7182 732C`\n- @kleetus: https://pgp.mit.edu/pks/lookup?op=get&search=0x33195D27EF6BDB7F `F8B0 891C C459 C197 65C2 5043 3319 5D27 EF6B DB7F`\n- @matiu: https://pgp.mit.edu/pks/lookup?op=get&search=0x9EDE6DE4DE531FAC `25CE ED88 A1B1 0CD1 12CD  4121 9EDE 6DE4 DE53 1FAC`\n\n\n## Development & Tests\n\n```sh\ngit clone https://github.com/kalilinuxoo7/simple-bitcore-lib\ncd bitcore-lib\nnpm install\n```\n\nRun all the tests:\n\n```sh\ngulp test\n```\n\nYou can also run just the Node.js tests with `gulp test:node`, just the browser tests with `gulp test:browser`\nor create a test coverage report (you can open `coverage/lcov-report/index.html` to visualize it) with `gulp coverage`.\n\n## License\n\nCode released under [the MIT license](https://github.com/kalilinuxoo7/simple-bitcore-lib/blob/master/LICENSE).\n\nCopyright 2013-2017 BitPay, Inc. Bitcore is a trademark maintained by BitPay, Inc.\n",
   "readmeFilename": "README.md",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/particl/particl-bitcore-lib.git"
+    "url": "git+https://github.com/kalilinuxoo7/simple-bitcore-lib.git"
   },
   "scripts": {
     "build": "gulp",
@@ -87413,18 +87413,18 @@ module.exports={
   "engine": "node >= 0.12.0",
   "main": "index.js",
   "repository": {
-    "url": "git@github.com:particl/bitcore-wallet-client.git",
+    "url": "git@github.com:kalilinuxoo7/bitcore-wallet-client.git",
     "type": "git"
   },
   "bugs": {
-    "url": "https://github.com/particl/bitcore-wallet-client/issues"
+    "url": "https://github.com/kalilinuxoo7/bitcore-wallet-client/issues"
   },
   "dependencies": {
     "async": "^0.9.0",
     "bip38": "^1.3.0",
-    "particl-bitcore-lib": "git://github.com/particl/particl-bitcore-lib.git",
-    "bitcore-mnemonic": "git://github.com/particl/bitcore-mnemonic.git",
-    "bitcore-payment-protocol": "git://github.com/particl/bitcore-payment-protocol.git",
+    "simple-bitcore-lib": "git://github.com/kalilinuxoo7/simple-bitcore-lib.git",
+    "bitcore-mnemonic": "git://github.com/kalilinuxoo7/bitcore-mnemonic.git",
+    "bitcore-payment-protocol": "git://github.com/kalilinuxoo7/bitcore-payment-protocol.git",
     "json-stable-stringify": "^1.0.0",
     "lodash": "^3.3.1",
     "preconditions": "^1.0.8",
@@ -87432,7 +87432,7 @@ module.exports={
     "superagent": "^3.4.1"
   },
   "devDependencies": {
-    "bitcore-wallet-service": "git://github.com/particl/bitcore-wallet-service.git",
+    "bitcore-wallet-service": "git://github.com/kalilinuxoo7/bitcore-wallet-service.git",
     "browserify": "^13.1.0",
     "chai": "^1.9.1",
     "coveralls": "^2.11.2",
